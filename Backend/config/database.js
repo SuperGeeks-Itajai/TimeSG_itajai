@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
-
+// Postgress senha notebook 1234 porta 5432
 // Criando uma instância do Sequelize com as configurações do banco de dados
 const sequelize = new Sequelize('nome_do_banco', 'usuario', 'senha', {
   host: 'localhost',
