@@ -1,10 +1,12 @@
 const { Sequelize } = require('sequelize');
 // Postgress senha notebook 1234 porta 5432
+// usuário postgres senha 1234
 // Criando uma instância do Sequelize com as configurações do banco de dados
-const sequelize = new Sequelize('nome_do_banco', 'usuario', 'senha', {
+const sequelize = new Sequelize('postgres', 'postgres', '1234', {
   host: 'localhost',
-  dialect: 'postgres', // Usando PostgreSQL como banco de dados
-  logging: false, // Desabilita o log de SQL no console
+  dialect: 'postgres',
+  port: 5432, // Certifique-se de que a porta está correta
+  logging: false,
   pool: {
     max: 5,
     min: 0,
@@ -13,7 +15,6 @@ const sequelize = new Sequelize('nome_do_banco', 'usuario', 'senha', {
   },
 });
 
-// Testando a conexão
 sequelize.authenticate()
   .then(() => {
     console.log('Conexão com o banco de dados estabelecida com sucesso.');

@@ -18,3 +18,4 @@ Modulo.hasMany(Atividade, { foreignKey: 'moduloId' });
 Atividade.belongsTo(Modulo, { foreignKey: 'moduloId' });
 
 module.exports = Modulo;
+

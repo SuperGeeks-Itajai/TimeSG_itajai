@@ -1,3 +1,4 @@
+// aluno.js
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 const Historico = require('./historico');
@@ -11,15 +12,19 @@ Aluno.init({
     allowNull: false,
   },
   moduloAtual: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull: false,
+    references: {
+      model: Modulo,
+      key: 'id',
+    },
   },
 }, {
   sequelize,
   modelName: 'Aluno',
 });
 
-Aluno.belongsTo(Modulo, { foreignKey: 'moduloAtual' });
+Aluno.belongsTo(Modulo, { foreignKey: 'moduloAtual', as: 'modulo' });
 Modulo.hasMany(Aluno, { foreignKey: 'moduloAtual' });
 
 Aluno.hasMany(Historico, { foreignKey: 'alunoId' });
