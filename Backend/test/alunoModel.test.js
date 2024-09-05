@@ -23,21 +23,15 @@ describe('Aluno Model', () => {
       moduloId: modulo.id,
     });
 
-    const historico = await Historico.create({
-      moduloId: modulo.id,
-      atividadesCompletas: [{ nomeAtividade: atividade.nomeAtividade }],
-    });
-
     const aluno = await Aluno.create({
       nome: 'João',
       moduloAtual: modulo.id, // Use o id do módulo aqui
-      historicoId: historico.id,
     });
 
-    const aluno2 = await Aluno.create({
-      nome: 'Pedro',
-      moduloAtual: modulo.id, // Use o id do módulo aqui
-      historicoId: historico.id,
+    const historico = await Historico.create({
+      moduloId: modulo.id,
+      atividadesCompletas: [{ nomeAtividade: atividade.nomeAtividade }],
+      alunoId: aluno.id, // Certifique-se de passar o alunoId
     });
 
     // Busca o aluno criado com o módulo associado

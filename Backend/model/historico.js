@@ -5,12 +5,19 @@ class Historico extends Model {}
 
 Historico.init({
   atividadesCompletas: {
-    type: DataTypes.JSONB, // Pode armazenar dados complexos como uma lista de atividades completas
+    type: DataTypes.JSONB,
     allowNull: false,
   },
   data: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
+  },
+  alunoId: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'Alunos', // ou 'Aluno' dependendo do nome da tabela
+      key: 'id',
+    },
   },
 }, {
   sequelize,
