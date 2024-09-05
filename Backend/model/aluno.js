@@ -1,6 +1,6 @@
 // aluno.js
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const sequelize = require('../Config/database');
 const Historico = require('./historico');
 const Modulo = require('./modulo');
 

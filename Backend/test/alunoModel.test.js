@@ -1,5 +1,5 @@
 // alunoModel.test.js
-const sequelize = require('../config/database');
+const sequelize = require('../Config/database');
 const Aluno = require('../Model/aluno');
 const Modulo = require('../Model/modulo');
 const Atividade = require('../Model/atividade');
